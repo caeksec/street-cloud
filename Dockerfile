@@ -29,8 +29,6 @@ RUN apt-get update && \
 # Fetch PCI IDs list to display proper GPU names
 RUN update-pciids
 
-# Set Working Directory
-WORKDIR /root
 
 # Setup Env
 RUN pip3 install gdown
@@ -39,10 +37,13 @@ RUN pip3 install gdown
 RUN gdown 1sR0MGpbj3lUCnki_jBG1irq5g3KwSdkH
 RUN 7z x custom_cmiyc_hashcat_linux.7z 
 RUN mv custom_cmiyc_hashcat_linux STREET
+RUN rm custom_cmiyc_hashcat_linux.7z 
 
+# Set Working Directory
+WORKDIR /STREET
 
 RUN git clone https://github.com/narkopolo/hashcat-rules-collection.git
-RUN mv hashcat-rules-collection STREET/rules
+#RUN mv hashcat-rules-collection STREET/rules
 
 # Sync Street.py
 RUN gdown 1RhM-dy-GWFncaiR-4i7rVWI_KDOSm9vH
