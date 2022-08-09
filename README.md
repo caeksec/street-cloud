@@ -1,10 +1,7 @@
-[![Docker Hub](http://dockeri.co/image/dizcza/docker-hashcat)](https://hub.docker.com/r/dizcza/docker-hashcat/)
+[![Docker Hub](http://dockeri.co/image/justcake/street-cloud)](https://hub.docker.com/r/justcake/street-cloud/)
 
-[![](https://img.shields.io/docker/image-size/dizcza/docker-hashcat/latest?label=latest)](https://hub.docker.com/r/dizcza/docker-hashcat/tags)
-[![](https://img.shields.io/docker/image-size/dizcza/docker-hashcat/cuda?label=cuda)](https://hub.docker.com/r/dizcza/docker-hashcat/tags)
-[![](https://img.shields.io/docker/image-size/dizcza/docker-hashcat/intel-cpu?label=intel-cpu)](https://hub.docker.com/r/dizcza/docker-hashcat/tags)
-[![](https://img.shields.io/docker/image-size/dizcza/docker-hashcat/intel-gpu?label=intel-gpu)](https://hub.docker.com/r/dizcza/docker-hashcat/tags)
-[![](https://img.shields.io/docker/image-size/dizcza/docker-hashcat/pocl?label=pocl)](https://hub.docker.com/r/dizcza/docker-hashcat/tags)
+[![](https://img.shields.io/docker/image-size/justcake/street-cloud/latest?label=latest)](https://hub.docker.com/r/justcake/street-cloud/tags)
+
 
 
 STREET Version of Dizcza's Docker for Vast.ai use
