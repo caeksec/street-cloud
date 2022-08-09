@@ -37,11 +37,12 @@ RUN pip3 install gdown
 
 # Custom Street 
 RUN gdown 1sR0MGpbj3lUCnki_jBG1irq5g3KwSdkH
-RUN ls -la
 RUN 7z x custom_cmiyc_hashcat_linux.7z 
-RUN cd custom_cmiyc_hashcat_linux
+RUN mv custom_cmiyc_hashcat_linux STREET
+
+
 RUN git clone https://github.com/narkopolo/hashcat-rules-collection.git
-RUN mv hashcat-rules-collection rules
+RUN mv hashcat-rules-collection STREET/rules
 
 # Sync Street.py
 RUN gdown 1RhM-dy-GWFncaiR-4i7rVWI_KDOSm9vH
