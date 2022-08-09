@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.2-devel-ubuntu18.04
+FROM nvidia/cuda:11.0.3-devel-ubuntu18.04
 
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 
@@ -24,7 +24,7 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
 # Update & install packages for installing hashcat
 RUN apt-get update && \
-    apt-get install -y wget make clinfo build-essential git libcurl4-openssl-dev libssl-dev zlib1g-dev libcurl4-openssl-dev libssl-dev pciutils python sudo apt install p7zip-full p7zip-rar
+    apt-get install -y wget make clinfo build-essential git libcurl4-openssl-dev libssl-dev zlib1g-dev libcurl4-openssl-dev libssl-dev pciutils python3 python3-pip p7zip-full p7zip-rar
 
 # Fetch PCI IDs list to display proper GPU names
 RUN update-pciids
@@ -33,22 +33,22 @@ RUN update-pciids
 WORKDIR /root
 
 # Setup Env
-RUN pip install gdown
+RUN pip3 install gdown
 
 # Custom Street 
-RUN gdown https://drive.google.com/file/d/1sR0MGpbj3lUCnki_jBG1irq5g3KwSdkH/view?usp=sharing
+RUN gdown 1sR0MGpbj3lUCnki_jBG1irq5g3KwSdkH
+RUN ls -la
 RUN 7z x custom_cmiyc_hashcat_linux.7z 
 RUN cd custom_cmiyc_hashcat_linux
 RUN git clone https://github.com/narkopolo/hashcat-rules-collection.git
 RUN mv hashcat-rules-collection rules
 
 # Sync Street.py
-RUN gdown https://drive.google.com/file/d/1RhM-dy-GWFncaiR-4i7rVWI_KDOSm9vH/view?usp=sharing
-
+RUN gdown 1RhM-dy-GWFncaiR-4i7rVWI_KDOSm9vH
 
 # Wordlists
-RUN gdown https://drive.google.com/file/d/1Cme46ftqeAbLy92z_y9skZsnDRmyoJiL/view?usp=sharing
-RUN gdown https://drive.google.com/file/d/1K-_c_2Uzfd_7LVUi0nKGAfveAaNYxiHh/view?usp=sharing
-RUN gdown https://drive.google.com/file/d/1V-TBAcFz72XRXmpswEULXef3OlxVdPKn/view?usp=sharing
+RUN gdown 1Cme46ftqeAbLy92z_y9skZsnDRmyoJiL
+RUN gdown 1K-_c_2Uzfd_7LVUi0nKGAfveAaNYxiHh
+RUN gdown 1V-TBAcFz72XRXmpswEULXef3OlxVdPKn
 
 
