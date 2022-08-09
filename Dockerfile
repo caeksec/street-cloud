@@ -13,6 +13,7 @@ RUN mkdir -p /etc/OpenCL/vendors && \
 RUN echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
 
+# nvidia paths
 ENV PATH /usr/local/nvidia/bin:${PATH}
 ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
 
@@ -21,29 +22,33 @@ ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 ################################ end nvidia opencl driver ################################
 
-ENV HASHCAT_VERSION        v6.2.5
-ENV HASHCAT_UTILS_VERSION  v1.9
-ENV HCXTOOLS_VERSION       6.2.5
-ENV HCXDUMPTOOL_VERSION    6.2.5
-ENV HCXKEYS_VERSION        master
-
 # Update & install packages for installing hashcat
 RUN apt-get update && \
-    apt-get install -y wget make clinfo build-essential git libcurl4-openssl-dev libssl-dev zlib1g-dev libcurl4-openssl-dev libssl-dev pciutils
+    apt-get install -y wget make clinfo build-essential git libcurl4-openssl-dev libssl-dev zlib1g-dev libcurl4-openssl-dev libssl-dev pciutils python sudo apt install p7zip-full p7zip-rar
 
 # Fetch PCI IDs list to display proper GPU names
 RUN update-pciids
 
+# Set Working Directory
 WORKDIR /root
 
-RUN git clone https://github.com/hashcat/hashcat.git && cd hashcat && git checkout ${HASHCAT_VERSION} && make install -j4
+# Setup Env
+RUN pip install gdown
 
-RUN git clone https://github.com/hashcat/hashcat-utils.git && cd hashcat-utils/src && git checkout ${HASHCAT_UTILS_VERSION} && make
-RUN ln -s /root/hashcat-utils/src/cap2hccapx.bin /usr/bin/cap2hccapx
+# Custom Street 
+RUN gdown https://drive.google.com/file/d/1sR0MGpbj3lUCnki_jBG1irq5g3KwSdkH/view?usp=sharing
+RUN 7z x custom_cmiyc_hashcat_linux.7z 
+RUN cd custom_cmiyc_hashcat_linux
+RUN git clone https://github.com/narkopolo/hashcat-rules-collection.git
+RUN mv hashcat-rules-collection rules
 
-RUN git clone https://github.com/ZerBea/hcxtools.git && cd hcxtools && git checkout ${HCXTOOLS_VERSION} && make install
+# Sync Street.py
+RUN gdown https://drive.google.com/file/d/1RhM-dy-GWFncaiR-4i7rVWI_KDOSm9vH/view?usp=sharing
 
-RUN git clone https://github.com/ZerBea/hcxdumptool.git && cd hcxdumptool && git checkout ${HCXDUMPTOOL_VERSION} && make install
 
-RUN git clone https://github.com/hashcat/kwprocessor.git && cd kwprocessor && git checkout ${HCXKEYS_VERSION} && make
-RUN ln -s /root/kwprocessor/kwp /usr/bin/kwp
+# Wordlists
+RUN gdown https://drive.google.com/file/d/1Cme46ftqeAbLy92z_y9skZsnDRmyoJiL/view?usp=sharing
+RUN gdown https://drive.google.com/file/d/1K-_c_2Uzfd_7LVUi0nKGAfveAaNYxiHh/view?usp=sharing
+RUN gdown https://drive.google.com/file/d/1V-TBAcFz72XRXmpswEULXef3OlxVdPKn/view?usp=sharing
+
+
