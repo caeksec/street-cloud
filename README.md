@@ -9,7 +9,7 @@
 
 ### ``street`` 
 ```
-docker pull justcake/street-cloud:latest
+docker pull justcake/street-cloud:street
 ```
 STREET version for use in competitions
 
