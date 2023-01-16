@@ -33,6 +33,8 @@ docker pull justcake/street-cloud:cuda-new
 Updated CUDA-toolkit for 4000 series 
 e.g. 4090
 
+Now works with CUDA 11.8+
+
 
 
 ## Rules included
