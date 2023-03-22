@@ -3,6 +3,7 @@
 [![](https://img.shields.io/docker/image-size/justcake/street-cloud/street?label=street)](https://hub.docker.com/r/justcake/street-cloud/tags)
 [![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=cuda)](https://hub.docker.com/r/justcake/street-cloud/tags)
 [![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=cuda-new)](https://hub.docker.com/r/justcake/street-cloud/tags)
+[![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=cuda-new-nocat)](https://hub.docker.com/r/justcake/street-cloud/tags)
 
 ## Tags
 
