@@ -7,7 +7,44 @@
 
 ## Tags
 
-### ``street`` 
+
+### ``cuda`` (CUDA 11.2) 
+```
+docker pull justcake/street-cloud:cuda
+```
+
+Updated CUDA-toolkit for 3000 and 2000 series (e.g. 3090ti and 2080ti)
+
+
+--- 
+
+### ``cuda-new`` (CUDA 12.2) <--- Latest
+```
+docker pull justcake/street-cloud:cuda-new
+```
+
+Updated CUDA-toolkit for 4000 series (e.g. 4090)
+
+--- 
+
+### ``cuda-new-nocat`` (CUDA 11.8) 
+```
+docker pull justcake/street-cloud:cuda-new-nocat
+```
+
+EXTRA:
+
+
+For the people that want to build hashcat with this image.
+
+Add this line to the On-start Script (rules optional):
+```
+git clone https://github.com/hashcat/hashcat; cd hashcat; make install; rm -rf rules; git clone https://github.com/caeksec/rules;
+```
+
+--- 
+
+### ``street`` (CUDA 11.2)
 ```
 docker pull justcake/street-cloud:street
 ```
@@ -15,36 +52,9 @@ STREET version for use in competitions
 
 <b>Make sure to update sync-street.py api key</b>
 
-This will be used to connect you to the left and found lists!
+<p>This will be used to connect you to the left and found lists!</p>
 
-
-### ``cuda`` 
-```
-docker pull justcake/street-cloud:cuda
-```
-Cuda version for normal use.
-
-Now works with CUDA 11.2+
-
-
-### ``cuda-new`` 
-```
-docker pull justcake/street-cloud:cuda-new
-```
-Updated CUDA-toolkit for 4000 series 
-e.g. 4090
-
-
-### ``cuda-new-nocat`` 
-```
-docker pull justcake/street-cloud:cuda-new-nocat
-```
-For the people that want to auto build hashcat during runtime.
-
-Add this line to the On-start Script:
-```
-git clone https://github.com/hashcat/hashcat; cd hashcat; make install; rm -rf rules; git clone https://github.com/caeksec/rules;
-```
+--- 
 
 
 ## Rules included
