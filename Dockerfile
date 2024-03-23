@@ -1,8 +1,8 @@
-# Normal CUDA
-# FROM --platform=linux/amd64 nvidia/cuda:11.1.1-devel-ubuntu20.04
-# 4000 series
-FROM --platform=linux/amd64 nvidia/cuda:11.2.2-devel-ubuntu20.04
-# FROM --platform=linux/amd64 bnzm5270/hashcat:latest
+# Normal CUDA (CUDA 11.1)
+# FROM --platform=linux/amd64 nvidia/cuda:11.1.1-devel-ubuntu22.04
+
+# 4000 series (CUDA 12.2)
+FROM --platform=linux/amd64 nvidia/cuda:12.2.2-cudnn8-devel-ubuntu22.04
 
 # Container Setup
 RUN rm -rf /var/lib/apt/lists/*
@@ -50,17 +50,6 @@ RUN apt-get update && \
     apt-get install -y wget make clinfo build-essential git libcurl4-openssl-dev libssl-dev zlib1g-dev libcurl4-openssl-dev libssl-dev pciutils python3 python3-pip p7zip-full p7zip-rar && \
     rm -rf /var/lib/apt/lists/*
 
-# 4000 series fix
-RUN apt-get remove --purge '^nvidia-.*' 
-RUN rm /etc/X11/xorg.conf | true 
-RUN rm /etc/X11/xorg.conf.d/90-nvidia-primary.conf | true 
-RUN rm /usr/share/X11/xorg.conf.d/10-nvidia.conf | true 
-RUN rm /usr/share/X11/xorg.conf.d/11-nvidia-prime.conf | true 
-RUN rm /etc/modprobe.d/nvidia-kms.conf | true 
-RUN rm /lib/modprobe.d/nvidia-kms.conf | true 
-RUN apt-get update
-RUN apt-get -y install cuda-toolkit-11-8
-
 # Fetch PCI IDs list to display proper GPU names
 RUN update-pciids
 
@@ -78,23 +67,12 @@ RUN update-pciids
 # Normal Hashcat
 WORKDIR /
 RUN rm -rf hashcat 
-RUN wget https://github.com/hashcat/hashcat/releases/download/v6.2.6/hashcat-6.2.6.7z
-RUN 7z x hashcat-6.2.6.7z
-RUN mv hashcat-6.2.6 hashcat
-RUN rm hashcat-6.2.6.7z
-
-# Set Working Directory
+RUN git clone https://github.com/hashcat/hashcat.git
 WORKDIR /hashcat
+RUN make
 
 # Get Rules
 RUN rm -rf rules
 RUN git clone https://github.com/caeksec/hashcat-rules-collection.git
 RUN mv hashcat-rules-collection rules
-
-# Wordlists
-# RUN gdown 1Cme46ftqeAbLy92z_y9skZsnDRmyoJiL
-# RUN gdown 1K-_c_2Uzfd_7LVUi0nKGAfveAaNYxiHh
-# RUN gdown 1V-TBAcFz72XRXmpswEULXef3OlxVdPKn
-
-# perms (maybe not needed)
-# RUN chmod +x hashcat.bin
+RUN mv /hashcat /root/
