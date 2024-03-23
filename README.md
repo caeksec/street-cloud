@@ -3,6 +3,7 @@
 [![](https://img.shields.io/docker/image-size/justcake/street-cloud/street?label=street)](https://hub.docker.com/r/justcake/street-cloud/tags)
 [![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=cuda)](https://hub.docker.com/r/justcake/street-cloud/tags)
 [![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=cuda-new)](https://hub.docker.com/r/justcake/street-cloud/tags)
+[![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=cuda-new-nocat)](https://hub.docker.com/r/justcake/street-cloud/tags)
 
 ## Tags
 
@@ -33,8 +34,17 @@ docker pull justcake/street-cloud:cuda-new
 Updated CUDA-toolkit for 4000 series 
 e.g. 4090
 
-Now works with CUDA 11.8+
 
+### ``cuda-new-nocat`` 
+```
+docker pull justcake/street-cloud:cuda-new-nocat
+```
+For the people that want to auto build hashcat during runtime.
+
+Add this line to the On-start Script:
+```
+git clone https://github.com/hashcat/hashcat; cd hashcat; make install; rm -rf rules; git clone https://github.com/caeksec/rules;
+```
 
 
 ## Rules included
