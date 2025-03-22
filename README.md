@@ -23,6 +23,7 @@ Updated CUDA-toolkit for 3000 and 2000 series (e.g. 3090ti and 2080ti)
 ```
 docker pull justcake/street-cloud:cuda-new-nocat
 ```
+This does **NOT** include hashcat. 
 --- 
 ### ``cuda-new`` (CUDA 12.2) 
 ```
