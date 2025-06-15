@@ -60,7 +60,7 @@ Run the following in the root hashcat directory.
 ```
 rm -rf rules; git clone https://github.com/caeksec/rules
 ```
-Be sure to check [performance sheet](https://docs.google.com/spreadsheets/d/1qQNwggWIWtL-m0EYrRg_vdwHOrZCY-SnWcYTwQN0fMk/edit#gid=1952927995) (Made by p͞é͜ng̸u̡͘iń͢͞k̴è͢͜e̛p͠è͢r#2994) for rules and additional wordlists!
+Be sure to check [performance sheet](https://docs.google.com/spreadsheets/d/1qQNwggWIWtL-m0EYrRg_vdwHOrZCY-SnWcYTwQN0fMk/edit#gid=1952927995) by penguinkeeper for additional rules and wordlists!
 
 
 ## FAQ
