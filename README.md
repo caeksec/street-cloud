@@ -1,7 +1,6 @@
 [![Docker Hub](http://dockeri.co/image/justcake/street-cloud)](https://hub.docker.com/r/justcake/street-cloud/)
 
 [![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=cuda)](https://hub.docker.com/r/justcake/street-cloud/tags)
-[![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=cuda-new-nocat)](https://hub.docker.com/r/justcake/street-cloud/tags)
 [![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=cuda-new)](https://hub.docker.com/r/justcake/street-cloud/tags)
 [![](https://img.shields.io/docker/image-size/justcake/street-cloud/cuda?label=5090)](https://hub.docker.com/r/justcake/street-cloud/tags)
 
@@ -18,15 +17,6 @@ Updated CUDA-toolkit for 3000 and 2000 series (e.g. 3090ti and 2080ti)
 
 --- 
 
-
-### ``cuda-new-nocat`` (CUDA 11.8) 
-```
-docker pull justcake/street-cloud:cuda-new-nocat
-```
-
-This does **NOT** include hashcat. 
-
---- 
 ### ``cuda-new`` (CUDA 12.2) 
 ```
 docker pull justcake/street-cloud:cuda-new
