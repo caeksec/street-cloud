@@ -30,7 +30,7 @@ Updated CUDA-toolkit for 4000 series (e.g. 4090)
 docker pull justcake/street-cloud:5090
 ```
 
-**UPDATED TO HASHCAT 7.0.0!!!**
+**UPDATED TO HASHCAT 7.1.2!!!**
 
 Updated CUDA-toolkit for 5000 series (e.g. 5090)
 
